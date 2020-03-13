@@ -1,0 +1,151 @@
+;
+
+var insta = {
+    init: function () {
+        this.commonFun();
+        this.positionSelectFun();
+        this.positionSelectMobileFun();
+        this.scrollerFun();
+        this.winResize();
+    },
+    /* Uses common function here
+    ============================================= */
+    commonFun: function () {
+        $('.totop').click(function(){
+            $('html,body').animate({
+                scrollTop: 0
+            }, 1000);
+        });
+
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+   
+           if (scroll > 200) {
+               $('.totop').css('bottom', '50px');
+           } else {
+               $('.totop').css('bottom', '-70px');
+           }         
+       });
+
+        $('.job-pos-link').click(function(e){
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: $('.available-positions-area').offset().top
+            }, 1000);
+        });
+
+        // Slider Open & Close
+        $('.btn-slider-open, .close-btn').on('click', function(e){   
+            e.preventDefault();
+            $('.slider-area').toggleClass('slider-appear');
+            $('body').toggleClass('slider-open');
+        });
+    },
+
+    scrollerFun: function () {
+        //scroller
+        var winHeight = $(window).outerHeight() - 180;
+        $(".applicaton-form").height(winHeight );
+
+        $(window).on("load",function(){
+            $(".applicaton-form").mCustomScrollbar();
+        });
+    },
+
+    positionSelectFun: function () {
+       // Job post click function
+       $('.interested-item .thumb-box').on('click', function(){ 
+            var jobPost = $(this),
+            dataPos = jobPost.attr('data-position');
+
+            if(jobPost.hasClass('selected-box')) {
+                jobPost.removeClass('selected-box');
+                $('#cjlp-'+ dataPos).prop("checked", false);
+                
+            } else {
+                jobPost.addClass('selected-box');
+                $('#cjlp-'+ dataPos).prop("checked", true);
+            }
+        });
+
+        //form checkbox
+        $('.selected-position-list .cjl-checkbox input').on('click', function(){
+            var $this = $(this),
+                jobPostDiv = $('.interested-item'),
+                dataNo = $this.attr('id').replace('cjlp-',''); //get the positon no
+                
+            if($this.is(':checked')){
+                jobPostDiv.find("[data-position='" + dataNo + "']").addClass('selected-box');
+            } else {
+                jobPostDiv.find("[data-position='" + dataNo + "']").removeClass('selected-box');
+            }
+        });
+    },
+
+    positionSelectMobileFun: function () {
+        if($(window).width() < 767){
+            var jobPosArray = [];
+            var mobileButton = $('#mobile-apply-btn');
+
+            $('.interested-item .thumb-box').on('click', function(){ 
+                var jobPost = $(this),
+                dataPos = jobPost.attr('data-position');
+    
+                if(jobPost.hasClass('selected-box')) {
+                    jobPosArray.push(dataPos);
+                } else {
+                    jobPosArray.pop();
+                }
+
+                if(jobPosArray.length > 0) {
+                    mobileButton.fadeIn();
+                } else {
+                    mobileButton.fadeOut();
+                }
+            });
+
+
+            //position of div
+            positionDivHeight = $('.available-positions-area').outerHeight();
+            
+            $(window).scroll(function(){
+                var nowScrollTop = $(this).scrollTop();
+    
+                if(nowScrollTop > (positionDivHeight - 300)) {
+                    mobileButton.fadeOut(); //hide button when section last part appear on screen
+                } 
+            });
+        }
+    },
+    winResize: function() {
+        $(window).resize(function () {
+            insta.scrollerFun();
+            insta.positionSelectMobileFun();
+        });
+    },
+
+};
+
+//Document Ready
+$(document).ready(function () {
+    insta.init();
+});
+
+/* WOW js
+============================================= */
+var wow = new WOW(
+    {
+        boxClass:     'wow',      // animated element css class (default is wow)
+        animateClass: 'animated', // animation css class (default is animated)
+        offset:       35,          // distance to the element when triggering the animation (default is 0)
+        mobile:       false,       // trigger animations on mobile devices (default is true)
+        live:         true,       // act on asynchronously loaded content (default is true)
+        callback:     function(box) {
+        // the callback is fired every time an animation is started
+        // the argument that is passed in is the DOM node being animated
+        },
+        scrollContainer: null // optional scroll container selector, otherwise use window
+    }
+);
+wow.init();
+
