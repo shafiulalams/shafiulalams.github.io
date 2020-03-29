@@ -474,7 +474,7 @@ a {
 /* Scroll Down Button*/
 .scroll-down-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 0px;
     left: 50%;
     border:2px solid #FFC576;
     width: 30px;
@@ -561,7 +561,7 @@ a {
     animation: none;
 }
 .mt--50 {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .white{
     color:white;
@@ -595,3 +595,30 @@ a {
                 align-items: center;
                 position: relative;
             }
+
+/*** media query **/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    
+}
