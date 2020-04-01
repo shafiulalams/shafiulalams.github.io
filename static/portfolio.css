@@ -13,17 +13,24 @@
 /* #Navigation
           ================================================== */
 /* Please ? this if you like it! */
-
+.full{
+    width:100%;
+}
 body{
     text-align: justify-all;
+    text-align: justify;
 }
 a:hover{
     color:white;
     text-decoration: none;
 }
 
-p{
+p {
     color:white;
+}
+
+p, div{
+/*    text-align:justify;*/
 }
 .img-circle {
     border-radius: 50%;
@@ -34,9 +41,7 @@ p{
       -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
       animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);*/
 }
-.krfQUW{
-    top:13%;
-}
+
 .start-header {
     opacity: 1;
     transform: translateY(0);
@@ -203,13 +208,27 @@ body,  #intro-bg:before {
     width: 40px;
     position: fixed;
     bottom: 0px;
-    left: 40px;
+    /** left: 40px;**/
+     left: 0%;
     right: auto;
     z-index: 10;
     color: rgb(168, 178, 209);
+     top: 16.5%; 
 }
-
-
+.krfQUW {
+    width: 40px;
+    position: fixed;
+    bottom: 0px;
+    left: auto;
+    /**right: 40px;**/
+    right: 1%;
+    z-index: 10;
+    color: rgb(168, 178, 209);
+    top:14%;
+}
+.krfQUW{
+    
+}
 .cJDQMh {
     display: flex;
     flex-direction: column;
@@ -231,7 +250,7 @@ body,  #intro-bg:before {
 .dxVzdv
 
 {
-    top: 18%; 
+/*    top: 18%; */
 }
 
 
@@ -594,15 +613,7 @@ a {
 .color1{
     color:#a4a5a6;
 }
-.krfQUW {
-    width: 40px;
-    position: fixed;
-    bottom: 0px;
-    left: auto;
-    right: 40px;
-    z-index: 10;
-    color: rgb(168, 178, 209);
-}
+
 .jxlTta {
     font-size: 12px;
     letter-spacing: 0.1em;
@@ -662,7 +673,7 @@ a {
         font-size: 2rem;
     }
     .krfQUW , .dxVzdv{
-        // display:none;
+         display:none;
     }
     .hero-banner .hero-banner-title{
         font-size: 35px;
