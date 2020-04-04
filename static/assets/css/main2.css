@@ -24,16 +24,11 @@
 ================================================== */
 
 body{
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: 400;
-    color: #212112;
-    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
-    background-position: center;
-    background-repeat: repeat;
-    background-size: 7%;
-    background-color: #fff;
+   font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    
+    color: white;
+    
     overflow-x: hidden;
     transition: all 200ms linear;
 }
@@ -47,3 +42,16 @@ body{
 }
 
 
+/*
+ *  STYLE 1
+ */
+
+body::-webkit-scrollbar{width:1px;height:1px;}
+body::-webkit-scrollbar-track{box-shadow:inset 0 0 6px rgba(0,0,0,.3)}
+body::-webkit-scrollbar-thumb{background-color:#ffbc00;border-radius:20px;outline:#708090 solid 1px}
+
+h5{
+        font-size: 16px;
+    font-weight: 400;
+    color: #ffcd30;
+}
